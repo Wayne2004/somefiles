@@ -3,9 +3,9 @@ function sleep(ms) {
 }
 
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 3000; i++) {
     //click chat 
-    document.getElementsByClassName('_a6ag _a6ah clearfix _ikh')[5].click();
+    document.getElementsByClassName('_a6ag _a6ah clearfix _ikh')[3].click();
     await sleep(2500);
     
     //open saved reply
