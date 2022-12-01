@@ -1,0 +1,359 @@
+from itertools import product
+import time
+english = {
+    1 : {
+        "TUE" : "1030-1230",
+        "FRI" : "1030-1230"
+    },
+    2 : {
+        "TUE" : "1500-1700",
+        "FRI" : "1500-1700"
+    },
+    3 : {
+        "MON" : "1030-1230",
+        "WED" : "1030-1230"
+    },
+    4 : {
+        "TUE" : "0830-1030",
+        "THU" : "0830-1030"
+    },
+    5 : {
+        "MON" : "1500-1700",
+        "THU" : "1300-1500"
+    },
+    6 : {
+        "WED" : "1500-1700",
+        "FRI" : "1500-1700"
+    },
+    7 : {
+        "MON" : "1500-1700",
+        "WED" : "1300-1500"
+    },
+    8 : {
+        "TUE" : "1030-1230",
+        "THU" : "0830-1030"
+    },
+    9 : {
+        "TUE" : "1500-1700",
+        "FRI" : "1030-1230"
+    },
+    10 : {
+        "WED" : "1500-1700",
+        "FRI" : "1030-1230"
+    },
+    11 : {
+        "MON" : "1300-1500",
+        "THU" : "1030-1230"
+    },
+    12 : {
+        "WED" : "1030-1230",
+        "FRI" : "0830-1030"
+    },
+    13 : {
+        "WED" : "1300-1500",
+        "FRI" : "1500-1700"
+    },
+    14 : {
+        "TUE" : "0830-1030",
+        "THU" : "1500-1700"
+    }
+}
+
+criticalthinking = {
+    1 : {
+        "WED" : "1500-1700",
+        "FRI" : "1400-1500"
+    },
+    2 : {
+        "WED" : "0830-1030",
+        "FRI" : "1030-1130"
+    },
+    3 : {
+        "TUE" : "1500-1700",
+        "THU" : "1030-1130"
+    },
+    4 : {
+        "MON" : "1500-1700",
+        "THU" : "1500-1600"
+    },
+    5 : {
+        "TUE" : "1300-1500",
+        "FRI" : "1300-1400"
+    },
+    6 : {
+        "TUE" : "0830-1030",
+        "THU" : "1600-1700"
+    },
+    7 : {
+        "THU" : "1300-1500",
+        "FRI" : "1130-1230"
+    },
+    8 : {
+        "WED" : "1030-1230",
+        "THU" : "1130-1230"
+    },
+    9 : {
+        "MON" : "1030-1230",
+        "THU" : "1030-1130"
+    },
+    10 : {
+        "WED" : "1030-1130",
+        "THU" : "0830-1030"
+    },
+    11 : {
+        "WED" : "0830-1030",
+        "THU" : "1600-1700"
+    },
+    12 : {
+        "MON" : "1030-1230",
+        "THU" : "1500-1600"
+    },
+    13 : {
+        "THU" : "1130-1230",
+        "FRI" : "0830-1030"
+    },
+    14 : {
+        "WED" : "1500-1700",
+        "FRI" : "1030-1130"
+    }
+}
+
+maths = {
+    1 : {
+        "MON" : "1030-1230",
+        "THU" : "1300-1500"
+    },
+    2 : {
+        "TUE" : "1300-1500",
+        "THU" : "1030-1230"
+    },
+    3 : {
+        "MON" : "1300-1500",
+        "THU" : "1500-1700"
+    },
+    4 : {
+        "WED" : "0830-1030",
+        "FRI" : "1300-1500"
+    },
+    5 : {
+        "TUE" : "1030-1230",
+        "FRI" : "1500-1700"
+    },
+    6 : {
+        "WED" : "1300-1500",
+        "FRI" : "0830-1030"
+    },
+    7 : {
+        "MON" : "1300-1500",
+        "THU" : "1500-1700"
+    },
+    8 : {
+        "TUE" : "1300-1500",
+        "FRI" : "1300-1500"
+    },
+    9 : {
+        "TUE" : "1030-1230",
+        "THU" : "0830-1030"
+    },
+    10 : {
+        "WED" : "1300-1500",
+        "FRI" : "1500-1700"
+    },
+    11 : {
+        "TUE" : "1300-1500",
+        "THU" : "1030-1230"
+    },
+    12 : {
+        "MON" : "1500-1700",
+        "THU" : "1030-1230"
+    },
+    13 : {
+        "MON" : "0830-1030",
+        "WED" : "1500-1700"
+    },
+    14 : {
+        "WED" : "1030-1230",
+        "FRI" : "1300-1500"
+    }
+}
+
+it = {
+    1 : {
+        "TUE" : "0830-1030",
+        "WED" : "0830-1030"
+    },
+    2 : {
+        "MON" : "1030-1230",
+        "TUE" : "1030-1230"
+    },
+    3 : {
+        "MON" : "0830-1030",
+        "THU" : "1030-1230"
+    }
+}
+comb = product(english.values(),criticalthinking.values(),maths.values(),it.values())
+listofcomb = []
+for x in list(comb):
+    listofcomb.append(x)
+number_of_comb = len(listofcomb)
+
+
+for x,y,z,k in listofcomb:
+    for _ in x.items():
+        if _ in y.items():
+            listofcomb.remove((x,y,z,k))
+
+for x,y,z,k in listofcomb:
+
+    for _ in x.items():
+        if _ in y.items():
+            listofcomb.remove((x,y,z,k))
+
+for x, y, z, k in listofcomb:
+
+    for _ in x.items():
+        if _ in y.items():
+            listofcomb.remove((x, y, z, k))
+
+for x, y, z, k in listofcomb:
+
+    for _ in x.items():
+        if _ in y.items():
+            listofcomb.remove((x, y, z, k))
+
+for x, y, z, k in listofcomb:
+
+    for _ in x.items():
+        if _ in y.items():
+            listofcomb.remove((x, y, z, k))
+
+for x, y, z, k in listofcomb:
+
+    for _ in x.items():
+        if _ in y.items():
+            listofcomb.remove((x, y, z, k))
+
+for x, y, z, k in listofcomb:
+
+    for _ in x.items():
+        if _ in y.items():
+            listofcomb.remove((x, y, z, k))
+
+
+for x, y, z, k in listofcomb:
+    for _ in x.items():
+        if _ in z.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+for x, y, z, k in listofcomb:
+    for _ in x.items():
+        if _ in z.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+for x, y, z, k in listofcomb:
+    for _ in x.items():
+        if _ in z.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+for x, y, z, k in listofcomb:
+    for _ in x.items():
+        if _ in z.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+
+
+
+for x, y, z, k in listofcomb:
+    for _ in x.items():
+        if _ in k.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+
+for x, y, z, k in listofcomb:
+    for _ in y.items():
+        if _ in z.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+for x, y, z, k in listofcomb:
+    for _ in y.items():
+        if _ in z.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+for x, y, z, k in listofcomb:
+    for _ in y.items():
+        if _ in z.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+
+
+for x, y, z, k in listofcomb:
+    for _ in y.items():
+        if _ in k.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+
+
+for x, y, z, k in listofcomb:
+    for _ in z.items():
+        if _ in k.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+
+
+
+for x, y, z, k in listofcomb:
+    for _ in z.items():
+        if _ in k.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+
+
+for x, y, z, k in listofcomb:
+    for _ in z.items():
+        if _ in k.items():
+            try:
+                listofcomb.remove((x, y, z, k))
+            except:
+                pass
+
+
+print('After Some Nigga Did Some Calculations...\n')
+time.sleep(3)
+print(f"Number Of Combinations With No Time Clash : {len(listofcomb)}/{number_of_comb}\n")
+
+print('                 ENGLISH',"                                CRITICAL THINKING","                              MATHS","                         IT\n")
+for x,y,z,k in listofcomb:
+    print(x,y,z,k)
