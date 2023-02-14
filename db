@@ -1,3 +1,7 @@
 {
-    "Wayne24": {"pin" : "Gan12345", "expires" : "0", "api_key" : "q23LjQEU5cgJfVSlZ-hVPvauLQ8g5JEt"}
+    "Wayne24": {"pin" : "Gan12345", "expires" : "0", "api_key" : "q23LjQEU5cgJfVSlZ-hVPvauLQ8g5JEt"},
+    "Mod1": {"pin" : "111", "expires" : "20/02/2023", "api_key" : "q23LjQEU5cgJfVSlZ-hVPvauLQ8g5JEt"},
+    "Mod2": {"pin" : "222", "expires" : "20/03/2023", "api_key" : "q23LjQEU5cgJfVSlZ-hVPvauLQ8g5JEt"},
+    "Mod3": {"pin" : "333", "expires" : "20/02/2024", "api_key" : "q23LjQEU5cgJfVSlZ-hVPvauLQ8g5JEt"},
+    
 }
