@@ -1,0 +1,5 @@
+**DiaoCracker UPDATED FOR v0.2.33**
+-Run DiaoSNRKS and Get The Latest Update For v0.2.33
+-After Restarting Should See Invalid Key at Login Page
+-Close DiaoSNKRS and Run DiaoCracker
+-Choose DiaoSNKRS Folder Not Files And Click Start
